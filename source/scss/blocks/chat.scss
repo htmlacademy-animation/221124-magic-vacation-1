@@ -185,4 +185,11 @@
 
 .chat__footer {
   margin-top: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity $trans-primary, transform $trans-primary;
+  .screen--game.active &{
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
