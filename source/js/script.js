@@ -19,5 +19,12 @@ result();
 form();
 social();
 
-const fullPageScroll = new FullPageScroll();
-fullPageScroll.init();
+
+window.addEventListener(`load`, () => {
+  setTimeout(()=>{
+    const body = document.querySelector(`body`);
+    body.classList.add(`loaded`);
+    const fullPageScroll = new FullPageScroll();
+    fullPageScroll.init();
+  }, 2000);
+});

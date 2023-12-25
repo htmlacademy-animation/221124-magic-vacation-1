@@ -35,7 +35,15 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translateX(-20%);
+  opacity: 0;
+  transition: transform $trans-primary, opacity $trans-primary;
+  transition-delay: .2s;
 
+  body.loaded &{
+    transform: translateX(0);
+    opacity: 1;
+  }
   @media (min-width: $stop-scaling) {
     top: -5px;
     padding: 10px 0;
@@ -130,7 +138,12 @@
 .page-header__nav {
   display: flex;
   align-items: center;
-
+  opacity: 0;
+  transition-delay: .2s;
+  transition: opacity $trans-primary;
+  body.loaded &{
+    opacity: 1;
+  }
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
     top: 0;
@@ -262,23 +275,22 @@
         background-color: $c-dark;
       }
     }
-
+    &:hover,
     &.active {
       &::after {
         width: 100%;
+        right: auto;
+        left: 0;
+        opacity: 1;
+        background-color: $c-light;
       }
     }
-
     &:hover,
     &:focus {
       color: $c-purple;
       outline: none;
 
       &::after {
-        right: auto;
-        left: 0;
-        width: 100%;
-        opacity: 1;
         background-color: $c-purple;
       }
     }
