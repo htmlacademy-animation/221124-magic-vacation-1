@@ -37,7 +37,7 @@
   color: $c-light;
   transform: translateX(-20%);
   opacity: 0;
-  transition: transform $trans-primary, opacity $trans-primary;
+  transition: transform $trans-secondary, opacity $trans-secondary;
   transition-delay: .2s;
 
   body.loaded &{
@@ -140,7 +140,7 @@
   align-items: center;
   opacity: 0;
   transition-delay: .2s;
-  transition: opacity $trans-primary;
+  transition: opacity $trans-secondary;
   body.loaded &{
     opacity: 1;
   }
