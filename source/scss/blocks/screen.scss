@@ -2,14 +2,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  //min-height: 100vh;
+  height: 100vh;
   z-index: 1;
   overflow: hidden;
 
   &--hidden {
     display: none;
   }
-
   @media (max-width: $tablet) and (orientation: portrait) {
     min-height: calc(var(--vh, 1vh) * 100);
   }
@@ -47,7 +47,7 @@
   background-color: $c-light;
   z-index: 1;
   transform: translateY(100%);
-  transition: transform .6s cubic-bezier(.15,.58,.6,.6);
+  transition: transform $trans-secondary;
   .screen.active &{
     transform: translateY(0);
   }
@@ -307,8 +307,25 @@
   }
 }
 
-.screen--prizes {
-  background-color: $c-dark;
+.screen--prizes{
+  position: relative;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $c-dark;
+    transform: translateY(100%);
+    transition: transform $trans-secondary;
+  }
+  &.active{
+    &::before{
+      transform: translateY(0);
+    }
+  }
 }
 
 .screen--game {
